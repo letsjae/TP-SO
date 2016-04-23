@@ -1,0 +1,7 @@
+20:21:40 **** Incremental Build of configuration Debug for project UMC ****
+make all 
+Building target: UMC
+Invoking: Cross GCC Linker
+gcc  -o "UMC"  ./src/UMC.o   -lcommons -lparser-ansisop
+Finished building target: UMC
+ 

@@ -1,0 +1,15 @@
+20:15:42 **** Build of configuration Debug for project Nucleo-Kernel ****
+make all 
+Building file: ../src/Nucleo-Kernel.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Nucleo-Kernel.d" -MT"src/Nucleo-Kernel.d" -o "src/Nucleo-Kernel.o" "../src/Nucleo-Kernel.c"
+Finished building: ../src/Nucleo-Kernel.c
+ 
+Building target: Nucleo-Kernel
+Invoking: GCC C Linker
+gcc  -o "Nucleo-Kernel"  ./src/Nucleo-Kernel.o   
+Finished building target: Nucleo-Kernel
+ 
+
+20:15:42 Build Finished (took 293ms)
+
