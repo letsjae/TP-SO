@@ -54,7 +54,7 @@ int main( int argc, char** argv) {
 	FILE *config_file;
 	UMCconfigfile_t file_UMC;
 
-	if ((config_file = fopen("/home/utnso/Escritorio/ConfigFile_UMC", "w+")) == NULL){
+	if ((config_file = fopen("file.txt", "w+")) == NULL){
 		perror("\n Error en apertura de archivo de configuración('fopen()')");
 		exit(EXIT_FAILURE);
 	}

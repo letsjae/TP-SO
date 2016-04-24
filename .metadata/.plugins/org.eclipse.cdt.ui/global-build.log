@@ -1,5 +1,20 @@
-20:21:40 **** Incremental Build of configuration Debug for project UMC ****
+17:38:29 **** Incremental Build of configuration Debug for project UMC ****
 make all 
+make: No se hace nada para «all».
+17:39:43 **** Incremental Build of configuration Debug for project UMC ****
+make all 
+Building file: ../src/UMC.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/UMC.d" -MT"src/UMC.d" -o "src/UMC.o" "../src/UMC.c"
+../src/UMC.c: In function ‘main’:
+../src/UMC.c:55:18: warning: unused variable ‘file_UMC’ [-Wunused-variable]
+  UMCconfigfile_t file_UMC;
+                  ^
+../src/UMC.c:38:4: warning: typedef ‘info_proc_t’ locally defined but not used [-Wunused-local-typedefs]
+  } info_proc_t;
+    ^
+Finished building: ../src/UMC.c
+ 
 Building target: UMC
 Invoking: Cross GCC Linker
 gcc  -o "UMC"  ./src/UMC.o   -lcommons -lparser-ansisop

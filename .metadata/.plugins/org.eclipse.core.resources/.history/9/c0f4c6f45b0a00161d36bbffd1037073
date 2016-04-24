@@ -49,12 +49,12 @@ int main( int argc, char** argv) {
 		int MARCO_X_PROC;
 		int ENTRADAS_TLB;
 		int RETARDO;
-	} UMCconfigfile_t;
+	} UMC_config_file_t;
 
 	FILE *config_file;
-	UMCconfigfile_t file_UMC;
+	struct UMC_config_file_t conF_UMC;
 
-	if ((config_file = fopen("/home/utnso/Escritorio/ConfigFile_UMC", "w+")) == NULL){
+	if ((config_file = fopen("file.txt", "w+")) == NULL){
 		perror("\n Error en apertura de archivo de configuración('fopen()')");
 		exit(EXIT_FAILURE);
 	}
