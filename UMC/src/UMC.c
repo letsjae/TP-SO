@@ -17,13 +17,15 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <netinet/in.h>
-#include <errno.h>
+#include <commons/error.h>
+
 
 // Puertos en total: 65535
 // Puertos registrados: 1024/49151
 // Puertos dinámicos/privados: 49152/65535
 
-#define PUERTO "60201"
+//#define PUERTO "60201"
+#define PUERTO "0201"
 #define BACKLOG 100
 #define PACKAGESIZE 1024
 
@@ -52,13 +54,11 @@ int main( int argc, char** argv) {
 	} UMCconfigfile_t;
 
 	FILE *config_file;
-	UMCconfigfile_t file_UMC;
 
-	if ((config_file = fopen("/home/utnso/Escritorio/ConfigFile_UMC", "w+")) == NULL){
-		perror("\n Error en apertura de archivo de configuración('fopen()')");
+	if ((config_file = fopen("/home/utnso/Escritorio/ConfigFile_UMC", "r+")) == NULL){
+		perror("\n Error en apertura de archivo de configuración ('fopen()')");
 		exit(EXIT_FAILURE);
 	}
-
 
 	memset(&hints, 0, sizeof(hints));
 
@@ -71,7 +71,7 @@ int main( int argc, char** argv) {
 	hints.ai_next = NULL;
 
 	if (getaddrinfo(NULL, PUERTO, &hints, &serverInfo) != 0){
-		perror("\n Ocurrio un problema ('getaddrinfo()')");
+		error_show("\n Ocurrio un problema ('getaddrinfo()')");
 		exit(EXIT_FAILURE);
 	}
 
@@ -81,7 +81,7 @@ int main( int argc, char** argv) {
 			                        serverInfo->ai_socktype,
 							        serverInfo->ai_protocol)) == (-1)){
 
-		perror("\n Ocurrio un problema al abrir el socket ('socket( )')");
+		error_show("\n Ocurrio un problema al abrir el socket ('socket( )')");
 		exit(EXIT_FAILURE);
 
 	}
@@ -91,7 +91,7 @@ int main( int argc, char** argv) {
 	           serverInfo->ai_addr,
 			   serverInfo->ai_addrlen)) < 0 ){
 
-		 perror("\n Ocurrio un problema al asignar nombre a socket ('bind( )')");
+		 error_show("\n Ocurrio un problema al asignar nombre a socket ('bind( )')");
 		 exit(EXIT_FAILURE);
 	 }
 
